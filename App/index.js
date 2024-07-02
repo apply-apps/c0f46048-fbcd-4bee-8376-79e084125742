@@ -1,7 +1,9 @@
 // Filename: index.js
 // Combined code from all files
+
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import * as Speech from 'expo-speech';
 
 const letters = [
     { letter: "A", word: "Apple" },
@@ -26,6 +28,10 @@ export default function App() {
         setShowWord(true);
     };
 
+    const handlePronounceWord = () => {
+        Speech.speak(letters[currentIndex].word);
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.letter}>{letters[currentIndex].letter}</Text>
@@ -36,6 +42,9 @@ export default function App() {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={handleShowWord}>
                     <Text style={styles.buttonText}>Show Word</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={handlePronounceWord}>
+                    <Text style={styles.buttonText}>Pronounce Word</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -75,5 +84,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold',
+        textAlign: 'center',
     },
 });
