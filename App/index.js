@@ -1,28 +1,26 @@
 // Filename: index.js
 // Combined code from all files
 
-import React, { useState, useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const letters = ["A", "B", "C", "D", "E"];
-const displayDuration = 1000; // Display each letter for 1 second
 
 export default function App() {
     const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentLetterIndex((prevIndex) =>
-                prevIndex < letters.length - 1 ? prevIndex + 1 : 0
-            );
-        }, displayDuration);
-
-        return () => clearInterval(interval); // Cleanup the interval on component unmount
-    }, []);
+    const handleNextLetter = () => {
+        setCurrentLetterIndex((prevIndex) =>
+            prevIndex < letters.length - 1 ? prevIndex + 1 : 0
+        );
+    };
 
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.letter}>{letters[currentLetterIndex]}</Text>
+            <TouchableOpacity style={styles.button} onPress={handleNextLetter}>
+                <Text style={styles.buttonText}>Next Letter</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
@@ -38,5 +36,16 @@ const styles = StyleSheet.create({
         fontSize: 100,
         fontWeight: 'bold',
         color: '#333',
+        marginBottom: 30,
+    },
+    button: {
+        backgroundColor: '#007BFF',
+        padding: 15,
+        borderRadius: 10,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: 'bold',
     },
 });
