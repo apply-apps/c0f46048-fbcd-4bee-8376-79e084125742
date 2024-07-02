@@ -71,14 +71,16 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     buttonGroup: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     button: {
         backgroundColor: '#007BFF',
         padding: 15,
         borderRadius: 10,
-        marginHorizontal: 10,
+        marginVertical: 10,
+        width: 200,
+        alignItems: 'center',
     },
     buttonText: {
         color: '#fff',
