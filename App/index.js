@@ -1,6 +1,5 @@
 // Filename: index.js
 // Combined code from all files
-
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import * as Speech from 'expo-speech';
@@ -59,10 +58,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     letter: {
-        fontSize: 100,
+        fontSize: 300,
         fontWeight: 'bold',
         color: '#333',
         marginBottom: 20,
+        textAlign: 'center',
     },
     word: {
         fontSize: 30,
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     buttonGroup: {
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 20,
     },
     button: {
         backgroundColor: '#007BFF',
