@@ -1,16 +1,17 @@
 // Filename: index.js
 // Combined code from all files
+
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
 
-const worlds = ["World 1", "World 2", "World 3", "World 4", "World 5"];
+const letters = ["A", "B", "C", "D", "E"];
 
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
-            {worlds.map((world, index) => (
-                <Text key={index} style={styles.title}>
-                    Hello {world}
+            {letters.map((letter, index) => (
+                <Text key={index} style={styles.letter}>
+                    {letter}
                 </Text>
             ))}
         </SafeAreaView>
@@ -20,13 +21,14 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f0f8ff',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    title: {
-        fontSize: 24,
+    letter: {
+        fontSize: 36,
         fontWeight: 'bold',
-        marginVertical: 5,
+        color: '#333',
+        marginVertical: 10,
     },
 });
